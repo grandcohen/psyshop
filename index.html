@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psyshop Name Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rakkas&family=Montserrat&family=Gloock&family=Zen+Dots&family=Bruno+Ace+S&family=Megrim&family=Fruktur&family=Metal+Mania&family=Uncial+Antiqua&family=Eagle+Lake&family=Trade+Winds&family=Mystery+Quest&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="floating-dots"></div>
+    
+    <div id="enter-screen" class="screen">
+        <div class="title">Psyshop Name Generator</div>
+        <div class="tagline">Create your <s>unique</s> brand name<br>because we are all one</div>
+        <button class="button" onclick="startGenerating()">Discover Ownself</button>
+    </div>
+
+    <div id="result-screen" class="screen" style="display: none;">
+        <div class="result-title">Your shop name is</div>
+        <div class="name-container">
+            <span id="loader" class="loader"></span>
+            <div id="shop-name" class="shop-name"></div>
+        </div>
+        <div class="button-container">
+            <button class="button" onclick="startGenerating()">Rebirth</button>
+            <!--<button class="button" onclick="showAbout()">About</button>-->
+        </div>
+    </div>
+    
+    <div id="about-screen" class="screen overlay" style="display: none;">
+        <div class="about-content">
+            <p>bla bla bla</p>
+            <button class="button" onclick="closeAbout()">Close</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
