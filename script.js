@@ -1,77 +1,23 @@
-const firstWords = ["Astral",
-                     "Cosmic", 
-                     "Crystal", 
-                     "Dancing", 
-                     "Dark", 
-                     "Divine", 
-                     "Drop",
-                     "Ecstatic", 
-                     "Energy", 
-                     "Fairy", 
-                     "Family", 
-                     "Flow", 
-                     "Flower", 
-                     "Forest", 
-                     "Happy", 
-                     "Goa", 
-                     "God", 
-                     "Goddess", 
-                     "Gypsy", 
-                     "Mystic", 
-                     "Magical", 
-                     "Moon", 
-                     "Mushroom", 
-                     "Psy", 
-                     "Pyramid", 
-                     "Rebel", 
-                     "Shadow", 
-                     "Shamanic", 
-                     "Soul", 
-                     "Spirit", 
-                     "Star", 
-                     "Sun", 
-                     "Sunrise", 
-                     "Sunset", 
-                     "Space", 
-                     "Tribal"];
+const firstWords = ["Astral", "Cosmic", "Crystal", "Dancing", "Dark", "Divine", "Drop", "Ecstatic", "Energy", "Fairy",
+                    "Family", "Flow", "Flower", "Forest", "Fungal", "Galactic", "Galaxy", "Gaia", "God", "Goddess",
+                    "Goa", "Green", "Happy", "Herbal", "Infected", "Light", "Lucid", "Lunar", "Magical", "Machine",
+                    "Mandala", "Mars", "Mercury", "Mysterious", "Moon", "Mother", "Mystic", "One", "Oracle",
+                    "Parvati", "Perfect", "Plasma", "Portal", "Primal", "Psy-", "Pyramid", "Rebel", "Root", "Sacred",
+                    "Saturn", "Shadow", "Shakti", "Shamanic", "Shiva", "Sky", "Sol", "Solar", "Soul", "Sound",
+                    "Space", "Spirit", "Star", "Static", "Sun", "Sunbeam", "Sunrise", "Sunset", "Surreal",
+                    "Synesthetic", "Technology", "Terra", "The", "Tidal", "Titan", "Tribe", "Universe", "Venus",
+                    "Void", "Whispering", "White", "X-", "Zen", "Zeus"];
 
-const secondWords = ["Boutique",
-                        "Brothers",
-                        "Circle", 
-                        "Crystal",
-                        "Cycle", 
-                        "Divine", 
-                        "Drop", 
-                        "Elements", 
-                        "Energy",
-                        "Fairy", 
-                        "Family", 
-                        "Flow", 
-                        "Flower", 
-                        "Forest", 
-                        "Hippie", 
-                        "Jungle", 
-                        "Lab", 
-                        "Light", 
-                        "Goa", 
-                        "God", 
-                        "Goddess", 
-                        "Moon", 
-                        "Mushroom", 
-                        "Pyramid", 
-                        "Shadow", 
-                        "Sisters", 
-                        "Soul", 
-                        "Sun", 
-                        "Sunrise", 
-                        "Sunset", 
-                        "Space", 
-                        "Spirit", 
-                        "Star", 
-                        "Tribe", 
-                        "Universe", 
-                        "Utopia", 
-                        "Vibes"];
+const secondWords = ["Alchemist", "Apollo", "Aum", "Awakening", "Black", "Bliss", "Blue", "Boom", "Boutique",
+                        "Brothers", "Child", "Circle", "Crystal", "Cycle", "Dark", "Divine", "Drop", "Dream", "Drip",
+                        "Earth", "Echo", "Elements", "Enigma", "Energy", "Eros", "Eternal", "Fairy", "Family", "Flow",
+                        "Flower", "Forest", "Fractal", "Frequency", "Gaia", "Garden", "God", "Goddess", "Goa", "Green",
+                        "Guide", "Hippie", "Infinity", "Jungle", "Jupiter", "Lab", "Life", "Light", "Machine", "Mandala",
+                        "Mars", "Mercury", "Mist", "Moon", "Moonlit", "Mother", "Oracle", "Parvati", "Plasma", "Portal",
+                        "Projection", "Pyramid", "Ritual", "Root", "Saturn", "Seeker", "Shadow", "Shakti", "Shiva",
+                        "Sisters", "Sky", "Sol", "Solar", "Soul", "Sound", "Space", "Sphere", "Spirit", "Star", "Sun",
+                        "Sunbeam", "Sunrise", "Sunset", "Technology", "Terra", "Titan", "Tribe", "Universe", "Utopia",
+                        "Venus", "Vibes", "Void", "Vulcan", "White", "Zen", "Zeus"];
 
 const fonts = [
                 "Gloock", 
@@ -84,6 +30,22 @@ const fonts = [
                 "Eagle Lake", 
                 "Trade Winds", 
                 "Mystery Quest"];
+
+
+const words = ["DJ", "festival", "shop", "spirit", "gathering"];
+let index = 0;
+const wordElement = document.getElementById("changing-word");
+
+function changeWord() {
+    wordElement.style.opacity = 0; // Fade out
+    setTimeout(() => {
+        index = (index + 1) % words.length;
+        wordElement.textContent = words[index]; // Change text
+        wordElement.style.opacity = 1; // Fade in
+    }, 500); // Half a second delay for fade effect
+}
+
+setInterval(changeWord, 2000); // Change word every second
 
 function getRandomItem(array) {
     return array[Math.floor(Math.random() * array.length)];
@@ -98,7 +60,22 @@ function startGenerating() {
 
     setTimeout(() => {
         
+        let firstW = getRandomItem(firstWords);
+        let secondW = getRandomItem(secondWords);
+
+        while (firstW == secondW) {
+            secondW = getRandomItem(secondWords);
+        }
+
+        let shopName = firstW + ' ' + secondW;
+
+        if (firstW.indexOf('-') > -1) {
+            shopName = firstW + secondW;
+        }
+        /*
         const shopName = `${getRandomItem(firstWords)} ${getRandomItem(secondWords)}`;
+        */
+
         const randomFont = getRandomItem(fonts);
         const nameElement = document.querySelector(".shop-name");
 
@@ -107,6 +84,7 @@ function startGenerating() {
 
         document.getElementById("loader").style.display = "none";
         document.getElementById("shop-name").style.display = "flex";
+
     }, 1000);
 }
 
