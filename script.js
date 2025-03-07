@@ -117,8 +117,8 @@ function createFloatingDots() {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    const revealButton = document.querySelector(".button[onclick='startGenerating()']");
-    const rebirthButton = document.querySelector(".button-container .button");
+    const revealButton = document.getElementById("reveal-button");
+    const rebirthButton = document.getElementById("rebirth-button");
 
     if (revealButton) {
         revealButton.addEventListener("click", function() {
