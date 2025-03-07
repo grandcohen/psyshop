@@ -116,15 +116,27 @@ function createFloatingDots() {
     }
 }
 
-// Track "Reveal my Destiny" button click
-document.querySelector(".button[onclick='startGenerating()']").addEventListener("click", function() {
-    gtag('event', 'click', { event_category: 'Button', event_label: 'Reveal my Destiny' });
+document.addEventListener("DOMContentLoaded", function() {
+    const revealButton = document.querySelector(".button[onclick='startGenerating()']");
+    const rebirthButton = document.querySelector(".button-container .button");
+
+    if (revealButton) {
+        revealButton.addEventListener("click", function() {
+            gtag('event', 'click', { event_category: 'Button', event_label: 'Reveal my Destiny' });
+        });
+    } else {
+        console.warn("Reveal button not found.");
+    }
+
+    if (rebirthButton) {
+        rebirthButton.addEventListener("click", function() {
+            gtag('event', 'click', { event_category: 'Button', event_label: 'Rebirth' });
+        });
+    } else {
+        console.warn("Rebirth button not found.");
+    }
 });
 
-// Track "Rebirth" button click
-document.querySelector(".button-container .button").addEventListener("click", function() {
-    gtag('event', 'click', { event_category: 'Button', event_label: 'Rebirth' });
-});
 
 function showAbout() {
     document.getElementById("about-screen").style.display = "flex";
