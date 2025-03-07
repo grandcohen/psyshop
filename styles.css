@@ -4,8 +4,8 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Rakkas', cursive;
-    background: black;
+    font-family: 'Montserrat';
+    background: radial-gradient(circle, #060630, black);
     color: white;
     display: flex;
     justify-content: center;
@@ -60,30 +60,8 @@ body {
     animation: floatStars 10s ease-in-out infinite;
 }
 
-/*
-.floating-dots span {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: white;
-    border-radius: 50%;
-    opacity: 0.8;
-    animation: floatStars 10s linear infinite;
-}
-
-@keyframes floatStars {
-    from {
-        transform: translateY(0);
-    }
-    to {
-        transform: translateY(-100vh);
-    }
-}
-*/
-
 /* Ghost Buttons */
 .button {
-    font-family: Montserrat;
     background: transparent;
     color: rgba(255, 255, 255, 1);
     border: 2px solid rgba(255, 255, 255, 1);
@@ -114,29 +92,28 @@ body {
 .title {
     font-size: 3em;
     line-height: 1em;
+    font-family: 'Rakkas', cursive;
 }
 
 .tagline {
-    font-family: 'Montserrat';
     font-size: 1.2em;
     margin: 10px 0;
 }
 
-/* Result Screen */
 .result-title {
-    font-family: 'Montserrat';
     font-size: 1.2em;
-    margin-bottom: 10px;
     width: 90vw;
+    margin-bottom: 0;
 }
 
 .name-container {
     display: flex;
-    justify-content: center;
+    /*justify-content: center;*/
     align-items: center;
+    flex-direction: column;
     width: 90vw;
-    height: 250;
-
+    min-height: 160px;
+    margin-top: 20px;
 }
 
 .shop-name {
@@ -152,19 +129,10 @@ body {
     flex-direction: column;
     align-items: center;
     position: absolute;
-    bottom: 100px;
+    bottom: 150px;
 }
-
-.button-about {
-    border: none;
-    text-decoration: underline;
-    position: absolute;
-    bottom: 0px;
-}
-
 
 .about-text {
-    font-family: Montserrat;
     padding: 20px;
     border-radius: 10px;
     color: white;
@@ -197,4 +165,12 @@ a {
 
 #changing-word {
     transition: opacity 0.5s ease-in-out;
+}
+
+#loader {
+    margin-top: 30px;
+}
+
+#shop-name {
+    margin-top: 0px;
 }
