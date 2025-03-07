@@ -72,9 +72,6 @@ function startGenerating() {
         if (firstW.indexOf('-') > -1) {
             shopName = firstW + secondW;
         }
-        /*
-        const shopName = `${getRandomItem(firstWords)} ${getRandomItem(secondWords)}`;
-        */
 
         const randomFont = getRandomItem(fonts);
         const nameElement = document.querySelector(".shop-name");
@@ -119,6 +116,15 @@ function createFloatingDots() {
     }
 }
 
+// Track "Reveal my Destiny" button click
+document.querySelector(".button[onclick='startGenerating()']").addEventListener("click", function() {
+    gtag('event', 'click', { event_category: 'Button', event_label: 'Reveal my Destiny' });
+});
+
+// Track "Rebirth" button click
+document.querySelector(".button-container .button").addEventListener("click", function() {
+    gtag('event', 'click', { event_category: 'Button', event_label: 'Rebirth' });
+});
 
 function showAbout() {
     document.getElementById("about-screen").style.display = "flex";
